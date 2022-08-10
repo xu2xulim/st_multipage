@@ -27,7 +27,7 @@ pledges=Deta(os.environ.get('DETA_PROJECT_ID')).Base(os.environ.get('DFC_PLEDGES
 def auth_init():
 
     res = Users.fetch()
-
+    st.write(res.items)
     cd = {"usernames" : {} }
     if res.count == 0:
         pass
@@ -40,7 +40,7 @@ def auth_init():
 st.title("Dutch FC Pledges")
 
 credentials = auth_init()
-
+print(credentials)
 if credentials['usernames'] != {}:
     authenticator = stauth.Authenticate(credentials,
         'dfc_stauth', os.environ.get('DFC_USERS_SIGNATURE'), cookie_expiry_days=30)
