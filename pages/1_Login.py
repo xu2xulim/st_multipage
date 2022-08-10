@@ -40,7 +40,7 @@ def auth_init():
 st.title("Dutch FC Pledges")
 
 credentials = auth_init()
-print(credentials)
+
 if credentials['usernames'] != {}:
     authenticator = stauth.Authenticate(credentials,
         'dfc_stauth', os.environ.get('DFC_USERS_SIGNATURE'), cookie_expiry_days=30)
@@ -49,11 +49,11 @@ if credentials['usernames'] != {}:
 else:
     st.session_state['authentication_status'] = False
     st.info("Administrator setup is required.")
-
+st.write(st.session_state['authentication_status'])
 #st.session_state['authentication_status'] = authentication_status
 name, authentication_status, username = authenticator.login('Login', 'main')
 st.session_state['authentication_status'] = authentication_status
-
+st.write(st.session_state['authentication_status'])
 if st.session_state['authentication_status']:
     authenticator.logout('Logout', 'main')
     st.write('Welcome *%s*' % (st.session_state['name']))
