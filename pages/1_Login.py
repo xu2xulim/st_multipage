@@ -52,7 +52,7 @@ else:
 st.session_state['authentication_status'] = False
 st.write(st.session_state['authentication_status'])
 #st.session_state['authentication_status'] = authentication_status
-name, authentication_status, username = authenticator.login('Login', 'main')
+name, authentication_status, username = authenticator.login('Login', 'sidebar')
 st.session_state['authentication_status'] = authentication_status
 st.write(name)
 st.write(username)
