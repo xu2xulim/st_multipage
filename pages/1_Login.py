@@ -49,6 +49,7 @@ if credentials['usernames'] != {}:
 else:
     st.session_state['authentication_status'] = False
     st.info("Administrator setup is required.")
+st.session_state['authentication_status'] = False
 st.write(st.session_state['authentication_status'])
 #st.session_state['authentication_status'] = authentication_status
 name, authentication_status, username = authenticator.login('Login', 'main')
