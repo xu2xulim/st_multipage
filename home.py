@@ -1,6 +1,6 @@
 
 import streamlit as st
-import pandas as pd
+"""import pandas as pd
 import numpy as np
 import streamlit.components.v1 as components
 import streamlit_authenticator as stauth
@@ -19,7 +19,7 @@ import urllib.parse
 from dateutil.parser import parse
 from datetime import datetime
 import pytz
-tz = pytz.timezone('Asia/Singapore')
+tz = pytz.timezone('Asia/Singapore')"""
 st.set_page_config(
     page_title="Hello",
     page_icon="👋",
@@ -46,7 +46,7 @@ st.markdown(
     - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
 """
 )
-Users=Deta(os.environ.get('DETA_PROJECT_ID')).Base(os.environ.get('DFC_USERS_BASE'))
+"""Users=Deta(os.environ.get('DETA_PROJECT_ID')).Base(os.environ.get('DFC_USERS_BASE'))
 pledges=Deta(os.environ.get('DETA_PROJECT_ID')).Base(os.environ.get('DFC_PLEDGES_BASE'))
 
 #@st.cache(suppress_st_warning=True)
@@ -111,4 +111,4 @@ if not st.session_state['authentication_status']:
                 Users.put({'name' : name, 'username' : username, 'hash_password' : stauth.Hasher([password]).generate()[0], 'email' : email})
 
 if not st.session_state['authentication_status']  :
-    st.stop()
+    st.stop()"""
