@@ -51,7 +51,7 @@ else:
     st.info("Administrator setup is required.")
 
 #st.session_state['authentication_status'] = authentication_status
-name, authentication_status, username = authenticator.login('Login', 'sidebar')
+name, authentication_status, username = authenticator.login('Login', 'main')
 st.session_state['authentication_status'] = authentication_status
 
 if st.session_state['authentication_status']:
