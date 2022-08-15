@@ -24,5 +24,5 @@ if uploaded_file is not None:
      dataframe = pd.read_csv(uploaded_file)
      st.write(dataframe)
 
-     dd = dataframe.to_dict(orient=record)
+     dd = dataframe.to_dict("records")
      st.json(dd)
