@@ -2,6 +2,7 @@ import streamlit as st
 from io import StringIO
 from trello import TrelloClient
 import pandas as pd
+import os
 
 if not st.session_state['authentication_status'] :
     st.stop()
