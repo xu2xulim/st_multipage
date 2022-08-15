@@ -26,7 +26,7 @@ if uploaded_file is not None:
      st.write(dataframe)
 
      dd = dataframe.to_dict("records")
-     st.json(dd)
+     #st.json(dd)
 
 client = TrelloClient(api_key = os.environ.get('TRELLO_API_KEY'), token = os.environ.get('TRELLO_TOKEN'))
 st.write(client.list_boards())
