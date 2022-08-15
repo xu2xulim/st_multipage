@@ -28,7 +28,7 @@ if uploaded_file is not None:
      #st.write(string_data)
 
      # Can be used wherever a "file-like" object is accepted:
-     dataframe = pd.read_csv(uploaded_file)
+     dataframe = pd.read_csv(uploaded_file).fillna("")
      st.write(dataframe)
      # Easy way to get a dictitionary from a CSV
      dd = dataframe.to_dict("records")
