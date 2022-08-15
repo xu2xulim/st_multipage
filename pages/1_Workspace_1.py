@@ -26,3 +26,6 @@ if uploaded_file is not None:
 
      dd = dataframe.to_dict("records")
      st.json(dd)
+
+client = TrelloClient(api_key = os.environ.get('TRELLO_API_KEY'), token = os.environ.get('TRELLO_TOKEN'))
+st.write(client.get_boards())
