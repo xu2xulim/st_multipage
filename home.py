@@ -48,7 +48,7 @@ st.markdown(
     Streamlit is an open-source app framework built specifically for
     Machine Learning and Data Science projects.
 
-    I am using Streamlit to development code snippets and to put up
+    I am using Streamlit to develop code snippets and to put up
     quick demos by taking full advantage of some of the excellent set
     of tools available
 
