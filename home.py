@@ -1,4 +1,3 @@
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -24,46 +23,43 @@ tz = pytz.timezone('Asia/Singapore')
 Users=Deta(os.environ.get('DETA_PROJECT_ID')).Base(os.environ.get('DFC_USERS_BASE'))
 pledges=Deta(os.environ.get('DETA_PROJECT_ID')).Base(os.environ.get('DFC_PLEDGES_BASE'))
 
-st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
-)
+#@st.cache(suppress_st_warning=True)
+def auth_init():
 
-st.write("# Welcome to Streamlit! 👋")
+    res = Users.fetch()
 
-st.sidebar.success("Select a demo above.")
+    cd = {"usernames" : {} }
+    if res.count == 0:
+        pass
+    else:
+        for x in res.items :
+            cd['usernames'][x['username']] = {'name' : x['name'], 'password' : x['hash_password'], 'email' : x['email']}
+            #hashed_passwords.append(x['hash_password'])
+    return cd
+
+st.write("# Welcome to Pledgers! 👋")
+
+if 'authentication_status' not in st.session_state.keys():
+    st.session_state['authentication_status'] = False
+#st.sidebar.success("Select a demo above.")
 
 st.markdown(
     """
     Streamlit is an open-source app framework built specifically for
     Machine Learning and Data Science projects.
-    **👈 Select a demo from the sidebar** to see some examples
-    of what Streamlit can do!
-    ### Want to learn more?
-    - Check out [streamlit.io](https://streamlit.io)
-    - Jump into our [documentation](https://docs.streamlit.io)
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### See more complex demos
-    - Use a neural net to [analyze the Udacity Self-driving Car Image
-        Dataset](https://github.com/streamlit/demo-self-driving)
-    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-"""
-)
+
+    We are using Streamlit to share with your pledges and we hope to
+    bring you more features in the future.
+
+    Note that this app is secured by Streamlit Authenticator. When
+    you register as a user, only your pledges will be shown to you.
+
+    Do not share your username and password with anyone.
+
+    Register / Login to begin this exciting journey with us.
+    """)
+
 with st.sidebar:
-    def auth_init():
-
-        res = Users.fetch()
-        st.write(res.items)
-        cd = {"usernames" : {} }
-        if res.count == 0:
-            pass
-        else:
-            for x in res.items :
-                cd['usernames'][x['username']] = {'name' : x['name'], 'password' : x['hash_password'], 'email' : x['email']}
-                #hashed_passwords.append(x['hash_password'])
-        return cd
-
     st.title("Dutch FC Pledges")
 
     credentials = auth_init()
@@ -76,14 +72,12 @@ with st.sidebar:
     else:
         st.session_state['authentication_status'] = False
         st.info("Administrator setup is required.")
-    
-    st.write(st.session_state['authentication_status'])
+
     #st.session_state['authentication_status'] = authentication_status
     name, authentication_status, username = authenticator.login('Login', 'sidebar')
     st.session_state['authentication_status'] = authentication_status
-    st.write(name)
-    st.write(username)
-    st.write(st.session_state['authentication_status'])
+    st.session_state['name'] = name
+
     if st.session_state['authentication_status']:
         authenticator.logout('Logout', 'main')
         st.write('Welcome *%s*' % (st.session_state['name']))
@@ -114,5 +108,7 @@ with st.sidebar:
                 if submit:
                     Users.put({'name' : name, 'username' : username, 'hash_password' : stauth.Hasher([password]).generate()[0], 'email' : email})
 
-    if not st.session_state['authentication_status']  :
-        st.stop()
+
+
+if not st.session_state['authentication_status']  :
+    st.stop()
