@@ -34,9 +34,9 @@ if uploaded_file is not None:
      dd = dataframe.to_dict("records")
 
      db = Deta(os.environ.get('DEV_PROJECT_ID')).Base('deta_test_base')
-     for item in dd :
-         st.write(type(item), item)
-         db.put(item)
+     #for item in dd :
+         #st.write(type(item), item)
+         #db.put(item)
 
 
 client = TrelloClient(api_key = os.environ.get('TRELLO_API_KEY'), token = os.environ.get('TRELLO_TOKEN'))
