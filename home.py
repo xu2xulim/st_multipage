@@ -37,7 +37,7 @@ def auth_init():
             #hashed_passwords.append(x['hash_password'])
     return cd
 
-st.write("# Welcome to Pledgers! 👋")
+st.write("# milynnus Development and Demo! 👋")
 
 if 'authentication_status' not in st.session_state.keys():
     st.session_state['authentication_status'] = False
@@ -48,15 +48,11 @@ st.markdown(
     Streamlit is an open-source app framework built specifically for
     Machine Learning and Data Science projects.
 
-    We are using Streamlit to share with your pledges and we hope to
-    bring you more features in the future.
+    I am using Streamlit to development code snippets and to put up
+    quick demos by taking full advantage of some of the excellent set
+    of tools available
 
-    Note that this app is secured by Streamlit Authenticator. When
-    you register as a user, only your pledges will be shown to you.
-
-    Do not share your username and password with anyone.
-
-    Register / Login to begin this exciting journey with us.
+    Note that this workspace is secured by Streamlit Authenticator.
     """)
 
 with st.sidebar:
@@ -88,7 +84,7 @@ with st.sidebar:
         st.warning('Please enter your username and password')
 
 
-    if not st.session_state['authentication_status']:
+    """if not st.session_state['authentication_status']:
         with st.expander("Register"):
             st.warning("This form is for user self registration. The registration data is kept in a Deta Base.")
             with st.form("Fill in your name, your preferred username and password", clear_on_submit=True):
@@ -106,7 +102,7 @@ with st.sidebar:
                     st.stop()
 
                 if submit:
-                    Users.put({'name' : name, 'username' : username, 'hash_password' : stauth.Hasher([password]).generate()[0], 'email' : email})
+                    Users.put({'name' : name, 'username' : username, 'hash_password' : stauth.Hasher([password]).generate()[0], 'email' : email})"""
 
 
 
