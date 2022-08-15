@@ -6,7 +6,7 @@ import os
 
 if not st.session_state['authentication_status'] :
     st.stop()
-
+st.warning ("Upload a file like  a CSV to create a list of dictionaries")
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
      # To read file as bytes:
@@ -24,7 +24,7 @@ if uploaded_file is not None:
      # Can be used wherever a "file-like" object is accepted:
      dataframe = pd.read_csv(uploaded_file)
      st.write(dataframe)
-
+     # Easy way to get a dictitionary from a CSV
      dd = dataframe.to_dict("records")
      #st.json(dd)
 
