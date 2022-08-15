@@ -4,8 +4,13 @@ from trello import TrelloClient
 import pandas as pd
 import os
 
-if not st.session_state['authentication_status'] :
+if not st.session_state['authentication_status']  :
     st.stop()
+else:
+    with st.sidebar :
+        st.write("Session State :")
+        st.json(st.session_state)
+        
 st.warning ("Upload a file like  a CSV to create a list of dictionaries")
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
