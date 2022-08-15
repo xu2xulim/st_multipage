@@ -1,5 +1,6 @@
 import streamlit as st
-import StringIO
+from io import StringIO
+from trello import TrelloClient
 if not st.session_state['authentication_status'] :
     st.stop()
 
