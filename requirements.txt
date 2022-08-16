@@ -6,4 +6,6 @@ deta
 pandas
 numpy
 
-py_trello
+git+https://github.com/xu2xulim/py-trello
+telethon
+asyncio
