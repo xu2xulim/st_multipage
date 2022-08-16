@@ -7,5 +7,3 @@ pandas
 numpy
 
 git+https://github.com/xu2xulim/py-trello
-telethon
-asyncio
