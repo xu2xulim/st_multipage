@@ -17,5 +17,6 @@ api_hash = '2b01df6cde6a17328b8d34bc5680188b'
 async def main():
   client = TelegramClient('session_name', api_id, api_hash)
   await client.start()
+  st.write(client.get_me)
 
 asyncio.run(main())
