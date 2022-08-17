@@ -16,4 +16,4 @@ headers = {"Accept": "application/json"}
 
 response = requests.get(url, headers=headers)
 
-st.write(response.json()['items'])
+st.dataframe(response.json()['items'])
