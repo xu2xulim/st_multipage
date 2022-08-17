@@ -16,4 +16,4 @@ headers = {"Accept": "application/json"}
 
 response = requests.get(url, headers=headers)
 
-st.write(pd.DataFrame(response.json()['items']).fillna(""))
+st.write(response.json()['items'])
