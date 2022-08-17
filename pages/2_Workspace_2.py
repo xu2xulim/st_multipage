@@ -15,4 +15,4 @@ headers = {"Accept": "application/json"}
 
 response = requests.get(url, headers=headers)
 
-st.dataframe(response.json()['items']).fillna("")
+st.dataframe(pd.DataFrame(response.json()['items']).fillna(""))
