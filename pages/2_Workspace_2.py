@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import panda as pd
 
 if not st.session_state['authentication_status']  :
     st.stop()
