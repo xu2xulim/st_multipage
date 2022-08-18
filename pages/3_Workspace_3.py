@@ -37,5 +37,5 @@ data = {
     "code" : code
 }
 
-response = requests.post(url, json=data, headers=headers)
+response = requests.post(url, data=data, headers=headers)
 st.write(response.text)
