@@ -20,6 +20,6 @@ payload = {
     "consumer_key" : "103406-fe5e558e83e7075fb5c1f39",
     "redirect_uri" : "milynnus:authorizationFinished"
     }
-response = requests.post(url, data=payload, headers=headers)
+response = requests.post(url, json=payload, headers=headers)
 
 st.write(response)
