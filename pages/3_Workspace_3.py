@@ -28,8 +28,7 @@ st.write (code)
 
 url = "https://getpocket.com/v3/oauth/authorize"
 headers = {
-    "Content-Type": "application/json",
-    "X-Accept": "application/json"
+    "Content-Type": "application/json"
     }
 
 data = {
@@ -37,5 +36,5 @@ data = {
     "code" : code
 }
 
-response = requests.post(url, json=data)
+response = requests.post(url, json=data, headers=headers)
 st.write(response.text)
