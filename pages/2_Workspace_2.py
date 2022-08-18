@@ -2,6 +2,9 @@ import streamlit as st
 import requests
 import pandas as pd
 
+if 'authentication_status' not in st.session_state.keys():
+    st.session_state['authentication_status'] = False
+
 if not st.session_state['authentication_status']  :
     st.stop()
 else:
