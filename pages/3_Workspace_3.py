@@ -23,3 +23,13 @@ payload = {
 response = requests.post(url, json=payload, headers=headers)
 
 st.write(response.text)
+
+url = "https://getpocket.com/v3/oauth/authorize"
+headers = {"Content-Type": "application/x-www-form-urlencoded"}
+
+files = {
+    consumer_key=103406-fe5e558e83e7075fb5c1f39,
+    response.text
+}
+
+response = requests.post(url, file=files, headers=headers)
