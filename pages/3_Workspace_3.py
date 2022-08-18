@@ -33,3 +33,4 @@ files = {
 }
 
 response = requests.post(url, file=files, headers=headers)
+st.write(response.text)
