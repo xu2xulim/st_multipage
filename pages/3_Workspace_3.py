@@ -22,4 +22,4 @@ payload = {
     }
 response = requests.get(url, json=payload, headers=headers)
 
-st.dataframe(response.stats_code)
+st.write(response)
