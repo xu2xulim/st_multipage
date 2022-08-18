@@ -15,11 +15,11 @@ else:
 st.write("Harrison Thornhill")
 url = "https://getpocket.com/v3/oauth/request"
 
-headers = {"Accept": "application/json"}
+headers = {"Content-Type": "application/json"}
 payload = {
-    "consumer_key":"103406-fe5e558e83e7075fb5c1f39",
-    "redirect_uri":"milynnus:authorizationFinished"
+    "consumer_key" : "103406-fe5e558e83e7075fb5c1f39",
+    "redirect_uri" : "milynnus:authorizationFinished"
     }
 response = requests.get(url, json=payload, headers=headers)
 
-st.dataframe(response.json())
+st.dataframe(response.stats_code)
