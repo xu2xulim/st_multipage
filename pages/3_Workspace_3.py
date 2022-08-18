@@ -22,4 +22,4 @@ payload = {
     }
 response = requests.post(url, json=payload, headers=headers)
 
-st.write(response.json())
+st.json(response.text)
