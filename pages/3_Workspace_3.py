@@ -24,6 +24,7 @@ response = requests.post(url, json=payload, headers=headers)
 
 st.write(response.text)
 code = response.text.split("=")[-1]
+st.write (code)
 url = "https://getpocket.com/v3/oauth/authorize"
 headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
@@ -32,5 +33,5 @@ data = {
     "code" : code
 }
 
-response = requests.post(url, data=data, headers=headers)
+response = requests.post(url, json=data, headers=headers)
 st.write(response.text)
