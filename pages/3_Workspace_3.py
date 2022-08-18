@@ -26,7 +26,7 @@ st.write(response.text)
 code = response.text.split("=")[-1]
 st.write (code)
 url = "https://getpocket.com/v3/oauth/authorize"
-headers = {"Content-Type": "application/x-www-form-urlencoded"}
+headers = {"Content-Type": "application/json"}
 
 data = {
     "consumer_key" : "103406-fe5e558e83e7075fb5c1f39",
