@@ -14,7 +14,7 @@ else:
 url = st.text_input("URL")
 st.write("Harrison Thornhill")
 
-with with st.form("Dialpad", clear_on_submit=False):
+with st.form("Dialpad", clear_on_submit=False):
     url = st.text_input("URL")
     submit = st.form_submit_button("Submit")
     if submit:
