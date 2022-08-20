@@ -11,12 +11,18 @@ else:
     with st.sidebar :
         st.write("Session State :")
         st.json(st.session_state)
-
+url = st.text_input("URL")
 st.write("Harrison Thornhill")
-url = "https://dialpad.com/api/v2/contacts?apikey=c47h8ZcHRVWABfjr4MukxEMY2Qg25QQfDhFtgKYbkr2aANwwvBKqjVQngCVB9CuNwN3A8PYbvhkkL4UT8g3FZ6XXfR23FDMuTyXF"
 
-headers = {"Accept": "application/json"}
+with form():
+    url = st.text_input("URL")
+    submit = st.form_submit_button("Submit")
+    if submit:
 
-response = requests.get(url, headers=headers)
+        URL = f"{url}?apikey=c47h8ZcHRVWABfjr4MukxEMY2Qg25QQfDhFtgKYbkr2aANwwvBKqjVQngCVB9CuNwN3A8PYbvhkkL4UT8g3FZ6XXfR23FDMuTyXF"
 
-st.dataframe(response.json()['items'])
+        headers = {"Accept": "application/json"}
+
+        response = requests.get(URL, headers=headers)
+
+        st.dataframe(response.json()['items'])

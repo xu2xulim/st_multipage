@@ -15,7 +15,8 @@ else:
 st.write("Harrison Thornhill")
 url = "https://getpocket.com/v3/oauth/request"
 
-headers = {"Content-Type": "application/json"}
+headers = {"Content-Type": "application/json",
+    }
 payload = {
     "consumer_key" : "103406-fe5e558e83e7075fb5c1f39",
     "redirect_uri" : "milynnus:authorizationFinished"
