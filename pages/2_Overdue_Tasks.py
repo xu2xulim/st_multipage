@@ -15,7 +15,7 @@ else:
     res = db.fetch({"Status" : "Overdue"})
     df = pd.DataFrame(res.items)
     df_select = df[["Task", "Start Date", "Priority"]]
-    st.write(df_select)
+    st.table(df_select)
     with st.sidebar :
 
         st.write("Session State : (For Debug Only)")
