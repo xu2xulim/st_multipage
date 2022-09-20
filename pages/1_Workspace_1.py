@@ -36,7 +36,7 @@ if uploaded_file is not None:
      db = Deta(os.environ.get('DEV_PROJECT_ID')).Base('deta_pm_base')
 
      for item in dd :
-         st.write(type(item), item)
+         #st.write(type(item), item)
          db.put(item)
 
 st.metric("Tasks (Total)", db.fetch().count)
