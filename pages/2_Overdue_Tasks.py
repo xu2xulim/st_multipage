@@ -8,21 +8,11 @@ if 'authentication_status' not in st.session_state.keys():
 if not st.session_state['authentication_status']  :
     st.stop()
 else:
+    db = Deta(os.environ.get('DEV_PROJECT_ID')).Base('deta_pm_base')
+    df = pf.db.fetch({"Status" : "Overdue"}).items
+    df_select = df[["Task", "Start Date", "Priority"]]
+    st.write(df_select)
     with st.sidebar :
+
         st.write("Session State : (For Debug Only)")
         #st.json(st.session_state)
-url = st.text_input("URL")
-st.write("Harrison Thornhill")
-
-with st.form("Dialpad", clear_on_submit=False):
-    url = st.text_input("URL")
-    submit = st.form_submit_button("Submit")
-    if submit:
-
-        URL = f"{url}?apikey=c47h8ZcHRVWABfjr4MukxEMY2Qg25QQfDhFtgKYbkr2aANwwvBKqjVQngCVB9CuNwN3A8PYbvhkkL4UT8g3FZ6XXfR23FDMuTyXF"
-
-        headers = {"Accept": "application/json"}
-
-        response = requests.get(URL, headers=headers)
-
-        st.dataframe(response.json()['items'])
