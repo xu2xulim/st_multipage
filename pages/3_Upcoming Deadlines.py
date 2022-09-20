@@ -1,6 +1,8 @@
 import streamlit as st
-import requests
+
 import pandas as pd
+import os
+from deta import Deta
 
 if 'authentication_status' not in st.session_state.keys():
     st.session_state['authentication_status'] = False
