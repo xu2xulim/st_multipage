@@ -10,6 +10,7 @@ if not st.session_state['authentication_status']  :
     st.stop()
 else:
     db = Deta(os.environ.get('DEV_PROJECT_ID')).Base('deta_pm_base')
+    st.title("Key Project Management Metrics")
     col1, col2, col3 = st.columns(3)
 
     with col1:
