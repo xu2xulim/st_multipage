@@ -34,9 +34,10 @@ if uploaded_file is not None:
      dd = dataframe.to_dict("records")
 
      db = Deta(os.environ.get('DEV_PROJECT_ID')).Base('deta_pm_base')
-     #for item in dd :
-         #st.write(type(item), item)
-         #db.put(item)
+
+     for item in dd :
+         st.write(type(item), item)
+         db.put(item)
 
 st.metric("Tasks (Total)", db.fetch().count)
 st.metric("Tasks (Completed)", db.fetch({"Status" : "Completed"}).count)
