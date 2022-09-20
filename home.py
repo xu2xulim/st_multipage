@@ -115,5 +115,5 @@ else:
              db.put(item)
 
     with st.sidebar :
-        st.write("Session State :")
-        st.json(st.session_state)
+        st.write("Session State : (For Debug Only)")
+        #st.json(st.session_state)
