@@ -14,7 +14,7 @@ else:
     db = Deta(os.environ.get('DEV_PROJECT_ID')).Base('deta_pm_base')
     res = db.fetch({"Status" : "Overdue"})
     df = pd.DataFrame(res.items)
-    df_select = df[["Task", "Start Date", "Priority"]].sort_values(by=['Priority'])
+    df_select = df[["Task", "Start Date", "Priority", "Resources"]].sort_values(by=['Priority'])
     st.table(df_select)
     with st.sidebar :
 
