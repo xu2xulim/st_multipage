@@ -9,8 +9,8 @@ if not st.session_state['authentication_status']  :
     st.stop()
 else:
     with st.sidebar :
-        st.write("Session State :")
-        st.json(st.session_state)
+        st.write("Session State : (For Debug Only)")
+        #st.json(st.session_state)
 
 st.write("Harrison Thornhill")
 url = "https://getpocket.com/v3/oauth/request"
