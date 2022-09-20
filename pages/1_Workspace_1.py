@@ -38,6 +38,6 @@ if uploaded_file is not None:
          #st.write(type(item), item)
          #db.put(item)
 
-
-client = TrelloClient(api_key = os.environ.get('TRELLO_API_KEY'), token = os.environ.get('TRELLO_TOKEN'))
-client.list_boards()
+st.metric("Tasks (Total)", db.fetch().count)
+#client = TrelloClient(api_key = os.environ.get('TRELLO_API_KEY'), token = os.environ.get('TRELLO_TOKEN'))
+#client.list_boards()
