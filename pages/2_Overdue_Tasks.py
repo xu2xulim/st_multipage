@@ -12,7 +12,8 @@ if not st.session_state['authentication_status']  :
 else:
     st.title("Overdue Tasks")
     db = Deta(os.environ.get('DEV_PROJECT_ID')).Base('deta_pm_base')
-    df = pd.db.fetch({"Status" : "Overdue"}).items
+    res = db.fetch({"Status" : "Overdue"})
+    df = pd.DataFrame(res.items)
     df_select = df[["Task", "Start Date", "Priority"]]
     st.write(df_select)
     with st.sidebar :
