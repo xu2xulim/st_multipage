@@ -39,5 +39,6 @@ if uploaded_file is not None:
          #db.put(item)
 
 st.metric("Tasks (Total)", db.fetch().count)
+st.metric("Tasks (Completed)", db.fetch({"Status" : "Completed"}).count)
 #client = TrelloClient(api_key = os.environ.get('TRELLO_API_KEY'), token = os.environ.get('TRELLO_TOKEN'))
 #client.list_boards()
