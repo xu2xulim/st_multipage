@@ -11,7 +11,7 @@ if not st.session_state['authentication_status']  :
     st.stop()
 else:
     db = Deta(os.environ.get('DEV_PROJECT_ID')).Base('deta_pm_base')
-    df = pf.db.fetch({"Status" : "Overdue"}).items
+    df = pd.db.fetch({"Status" : "Overdue"}).items
     df_select = df[["Task", "Start Date", "Priority"]]
     st.write(df_select)
     with st.sidebar :
