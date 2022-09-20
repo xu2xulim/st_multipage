@@ -5,6 +5,7 @@ import streamlit.components.v1 as components
 import streamlit_authenticator as stauth
 #from streamlit_folium import folium_static
 #import folium
+from io import StringIO
 
 import os
 from datetime import datetime
@@ -89,3 +90,30 @@ else:
     with st.sidebar :
         st.write("Session State :")
         st.json(st.session_state)
+
+        st.warning ("Upload a file like  a CSV to create a list of dictionaries")
+        uploaded_file = st.file_uploader("Choose a file")
+        if uploaded_file is not None:
+             # To read file as bytes:
+             bytes_data = uploaded_file.getvalue()
+             #st.write(bytes_data)
+
+             # To convert to a string based IO:
+             stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+             #st.write(stringio)
+
+             # To read file as string:
+             string_data = stringio.read()
+             #st.write(string_data)
+
+             # Can be used wherever a "file-like" object is accepted:
+             dataframe = pd.read_csv(uploaded_file).fillna("")
+             st.write(dataframe)
+             # Easy way to get a dictitionary from a CSV
+             dd = dataframe.to_dict("records")
+
+             db = Deta(os.environ.get('DEV_PROJECT_ID')).Base('deta_pm_base')
+
+             for item in dd :
+                 #st.write(type(item), item)
+                 db.put(item)
